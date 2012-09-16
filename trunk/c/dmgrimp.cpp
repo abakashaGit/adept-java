@@ -9,7 +9,7 @@ JNIEXPORT jboolean JNICALL Java_DMGRJavaInterface_DmgrOpen  (JNIEnv *env, jclass
 {
 	void* dHandle;
 	char* lib = (char*)"/usr/local/lib64/digilent/adept/libdmgr.so";
-	char* name = (char*)"lol";
+	char* name = (char*)"DmgrOpen";
 	char* error = NULL;
 
 	dHandle = dlopen(lib, RTLD_LAZY);
@@ -24,7 +24,7 @@ JNIEXPORT jboolean JNICALL Java_DMGRJavaInterface_DmgrOpen  (JNIEnv *env, jclass
 	error = dlerror();
 	if(!error)
 	{
-		printf("Failed to load symbol: %s\nerror: %s", name, error);
+		printf("Failed to load symbol: %s\nerror: %s\n", name, error);
 		return 0;
 	}
 	dlclose(dHandle);
