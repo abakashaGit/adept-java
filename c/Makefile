@@ -22,3 +22,4 @@ dmgrimp.o: dmgrimp.cpp
 clean:
 	rm -f *.o
 	rm -f *.so
+	rm -f ../lib/*.so
