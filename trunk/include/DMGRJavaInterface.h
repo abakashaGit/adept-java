@@ -10,9 +10,9 @@ extern "C" {
 /*
  * Class:     DMGRJavaInterface
  * Method:    DmgrOpen
- * Signature: (ILjava/lang/String;)Z
+ * Signature: (ILjava/lang/String;)I
  */
-JNIEXPORT jboolean JNICALL Java_DMGRJavaInterface_DmgrOpen
+JNIEXPORT jint JNICALL Java_DMGRJavaInterface_DmgrOpen
   (JNIEnv *, jclass, jint, jstring);
 
 #ifdef __cplusplus

@@ -6,7 +6,7 @@
 #include "dpcdecl.h"
 #include "dmgr.h"
 
-JNIEXPORT jboolean JNICALL Java_DMGRJavaInterface_DmgrOpen  (JNIEnv *env, jclass cl, jint phif, jstring szSel)
+JNIEXPORT jint JNICALL Java_DMGRJavaInterface_DmgrOpen  (JNIEnv *env, jclass cl, jint phif, jstring szSel)
 {
 	void* dHandle;
 	char* lib = (char*)"/usr/local/lib64/digilent/adept/libdmgr.so";
@@ -32,19 +32,23 @@ JNIEXPORT jboolean JNICALL Java_DMGRJavaInterface_DmgrOpen  (JNIEnv *env, jclass
 		printf("Failed to load symbol: %s\nerror: %s\n", name, error);
 		return 0;
 	}
-	dlclose(dHandle);
+
 	szSelNative = (*env).GetStringUTFChars(szSel, 0);
 	strncpy(szSelNative2, szSelNative, 127);
 	szSelNative2[127] = '\0';
 	(*env).ReleaseStringUTFChars(szSel, szSelNative);
-	printf("Options: \nphif: %d\nszSel: %s\n", phif, szSelNative2);
 	openSuccess = dmgrOpen((HIF*)&phifNew, szSelNative2);
+	dlclose(dHandle);
 	if(!openSuccess)
 	{
-		printf("Failed to open device.\n");
+		printf("Failed to open device: %s\n", szSelNative2);
 		return 0;
 	}
 	return phifNew;
+/*
+	printf("hello world!\n");
+	return 0;
+*/
 }
 
 
