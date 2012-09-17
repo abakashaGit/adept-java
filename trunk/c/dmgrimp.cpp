@@ -22,13 +22,14 @@ JNIEXPORT jboolean JNICALL Java_DMGRJavaInterface_DmgrOpen  (JNIEnv *env, jclass
 	jboolean (*dmgrOpen)(HIF *, char *);
 	dmgrOpen = (jboolean (*)(HIF*, char*))dlsym(dHandle, name);
 	error = dlerror();
-	if(!error)
+	if(error) //Check to see if error is non-NULL, that is a pointer to an error description.
 	{
 		printf("Failed to load symbol: %s\nerror: %s\n", name, error);
 		return 0;
 	}
 	dlclose(dHandle);
-	printf("Options: \n");
+	printf("Options: \nphif: %d\nszSel: %s\n", phif, szSel);
+	//phif[0] = 4321;
 	return 0;
 	//return dmgrOpen((HIF*)&phif, (char*)szSel);
 

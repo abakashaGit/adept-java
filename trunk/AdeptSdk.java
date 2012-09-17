@@ -14,14 +14,14 @@ class AdeptSdk {
 	public static void main(String[] args) {
 		boolean passFail = false;
 		DMGRJavaInterface dmgr = new DMGRJavaInterface();
-		int handle = -1;
+		int handle = 1234;
 		if(dmgr.DmgrOpen(handle, "Basys2") == true)
 		{
-			System.out.println("success!");
+			System.out.println("success!" + handle);
 		}
 		else
 		{
-			System.out.println("fail!");
+			System.out.println("fail!" + handle);
 		}
 	}
 }
