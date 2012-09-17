@@ -8,14 +8,13 @@
 
 CC=javac
 
-AdeptSdk.class: AdeptSdk.java java/DMGRJavaInterface.class lib/libdmgrimp.so
+AdeptSdk.class: AdeptSdk.java java/DMGRJavaInterface.class 
+	cd c; make
 	cp java/*.class ./
 	$(CC) $<
 
 java/DMGRJavaInterface.class:
 	cd java; make
-lib/libdmgrimp.so:
-	cd c; make
 
 clean:
 	rm -f *.class
