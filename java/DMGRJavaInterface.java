@@ -1,4 +1,4 @@
 public class DMGRJavaInterface
 {
-	public static native boolean DmgrOpen(int phif, String szSel);
+	public static native int DmgrOpen(int phif, String szSel);
 }

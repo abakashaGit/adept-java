@@ -5,11 +5,11 @@
 #
 # Donations accepted in the form of beer.
 # #############
-CC=gcc
+CC=g++
 OPTS=-fPIC -Wall -c -o $@
 INCD=-I /opt/digilent.adept.sdk_2.1.1/inc/ -I /usr/lib/jvm/java-1.6.0-openjdk/include/ -I ../include/
 LIBD=-L /usr/local/lib64/digilent/adept/
-LIBS=-ldl 
+LIBS=-ldl
 
 SOPTS=-shared -Wall,-soname,$@, -o $@ $^
 
