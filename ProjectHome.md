@@ -1,0 +1,1 @@
+Using the Digilent Adept SDK you can control various features of various Digilent FPGA boards. We create C/Java Wrappers to manage interfacing between the two languages to access the available low-level C resources from Java. From here the goal is to reach cross platform compatibility between the 32/64 bit Windows & Linux SDKs which are currently available.
